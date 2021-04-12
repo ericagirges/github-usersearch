@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React from 'react';
+// components
+import UserCard from './UserCard';
 
-const SearchResults = () => {
+const SearchResults = props => {
+
     return (
-        <div></div>
+        <div>
+            {props.map(user => (
+                <UserCard key={user.id} user={user} />
+            ))}
+
+        </div>
     )
 };
 
