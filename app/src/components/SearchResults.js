@@ -1,15 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
 // components
 import UserCard from './UserCard';
 
+const TotalResults = styled.p `
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 300;
+`
+
 const SearchResults = props => {
 
-    const totalResults = props.results.length + 1
+    const totalResults = props.results.length
 
     return (
         <div>
-            <p className={props.results.length === 0 ? 'show' : 'hide'}>0 user matches for {props.keyword}</p>
-            <p className={props.results.length === 0 ? 'hide' : 'show'}>{totalResults} results for {props.keyword}</p>
+            <TotalResults className={props.results.length === 0 ? 'show' : 'hide'}>0 user matches for "{props.keyword}"</TotalResults>
+            <TotalResults className={props.results.length === 1 ? 'show' : 'hide'}>{totalResults} result for "{props.keyword}"</TotalResults>
+            <TotalResults className={props.results.length <= 1 ? 'hide' : 'show'}>{totalResults} results for "{props.keyword}"</TotalResults>
             {props.results.map(user => (
                 <UserCard key={user.id} user={user} />
             ))}

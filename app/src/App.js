@@ -16,6 +16,9 @@ const StyledTitle = styled.h1 `
     font-weight: 700;
     color: white;
     font-size: 2.0em;
+    @media(min-width: 600px) {
+      font-size: 3.0em;
+    }
 `
 
 function App() {
