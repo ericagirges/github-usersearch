@@ -1,7 +1,6 @@
 import './App.css';
 // components
 import SearchBar from './components/SearchBar';
-import SearchResults from './components/SearchResults';
 
 function App() {
   return (
@@ -10,8 +9,6 @@ function App() {
         <h1>GitHub User Search</h1>
       </header>
       <SearchBar />
-      <SearchResults />
-
     </div>
   );
 }

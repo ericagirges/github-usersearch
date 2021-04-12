@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const UserCard = () => {
+const UserCard = props => {
     return (
-        <div></div>
+        <div>
+            <img src={props.user.avatar_url} alt={`${props.user.login}'s avatar`}/>
+            <h2>{props.user.login}</h2>
+        </div>
     )
 };
 

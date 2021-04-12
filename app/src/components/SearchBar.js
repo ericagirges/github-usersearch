@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
+    const [lastQuery, setLastQuery] = useState('');
     const [results, setResults] = useState([])
 
     const changeHandler = e => {
@@ -14,19 +15,22 @@ const SearchBar = () => {
         e.preventDefault()
         axios.get(`https://api.github.com/search/users?q=${query} in:login`)
         .then((response) => {
-            console.log(response.data);
-            setResults(response.data);
+            console.log(response);
+            setResults(response.data.items);
+            setLastQuery(query);
         }).catch((error) => {
             console.log(error)
         })
         setQuery('')
     }
 
+    console.log('RESULT', results)
+
     return (
         <div>
             <input value={query} type="text" onChange={changeHandler} placeholder='Enter username here...'></input>
-            <button onSubmit={handleSubmit}>Search</button>
-            <SearchResults results={results}/>
+            <button onClick={handleSubmit}>Search</button>
+            <SearchResults results={results} keyword={lastQuery}/>
         </div>
     )
 };

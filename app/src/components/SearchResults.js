@@ -4,9 +4,13 @@ import UserCard from './UserCard';
 
 const SearchResults = props => {
 
+    const totalResults = props.results.length + 1
+
     return (
         <div>
-            {props.map(user => (
+            <p className={props.results.length === 0 ? 'show' : 'hide'}>0 user matches for {props.keyword}</p>
+            <p className={props.results.length === 0 ? 'hide' : 'show'}>{totalResults} results for {props.keyword}</p>
+            {props.results.map(user => (
                 <UserCard key={user.id} user={user} />
             ))}
 
