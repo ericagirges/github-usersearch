@@ -6,18 +6,30 @@ const UserContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 60%;
+  width: 90%;
   border: 1px solid #e0e4e7;
   font-family: "Roboto";
-  font-size: 1.4em;
+  font-size: 1em;
   padding: 20px;
+  @media (min-width: 750px) {
+    font-size: 1.2em;
+    width: 60%;
+  }
 `;
 
 const Avatar = styled.img`
   border-radius: 50%;
-  height: 150px;
-  width: 150px;
+  height: 75px;
+  width: 75px;
   padding: 0 20px;
+  @media (min-width: 550px) {
+    height: 100px;
+    width: 100px;
+  }
+  @media (min-width: 750px) {
+    height: 150px;
+    width: 150px;
+  }
 `;
 
 const Username = styled.h2`

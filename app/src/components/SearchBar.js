@@ -8,10 +8,13 @@ const RESULTS_PER_PAGE = 20;
 
 // styling
 const SearchFlexContainer = styled.div`
-  width: 400px;
+  width: 90%;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
+  @media (min-width: 400px) {
+    width: 400px;
+  }
 `;
 
 const SearchBackground = styled.form`
@@ -21,12 +24,15 @@ const SearchBackground = styled.form`
 `;
 
 const SearchInput = styled.input`
-  width: 300px;
+  width: 200px;
   height: 30px;
   background-color: whitesmoke;
   font-family: "Roboto", sans-serif;
   border: none;
   border-radius: 5px;
+  @media (min-width: 500px) {
+    width: 300px;
+  }
 `;
 
 const SearchButton = styled.button`
@@ -77,18 +83,20 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSearch}>
-      <SearchBackground>
-        <SearchFlexContainer>
-          <SearchInput
-            value={keyword}
-            type="text"
-            onChange={changeHandler}
-            placeholder="Enter username here..."
-          />
-          <SearchButton onClick={handleSearch}>Search</SearchButton>
-        </SearchFlexContainer>
-      </SearchBackground>
+    <div>
+      <form onSubmit={handleSearch}>
+        <SearchBackground>
+          <SearchFlexContainer>
+            <SearchInput
+              value={keyword}
+              type="text"
+              onChange={changeHandler}
+              placeholder="Enter username here..."
+            />
+            <SearchButton onClick={handleSearch}>Search</SearchButton>
+          </SearchFlexContainer>
+        </SearchBackground>
+      </form>
 
       <SearchResults
         page={page}
@@ -99,7 +107,7 @@ const SearchBar = () => {
         handleGoBack={(e) => handleSearch(e, Math.max(0, page - 1))}
         handleGoNext={(e) => handleSearch(e, page + 1)}
       />
-    </form>
+    </div>
   );
 };
 
