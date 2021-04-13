@@ -17,7 +17,7 @@ const SearchFlexContainer = styled.div`
   }
 `;
 
-const SearchBackground = styled.form`
+const SearchForm = styled.form`
   background-color: #242a2e;
   padding-bottom: 40px;
   margin-bottom: 50px;
@@ -85,19 +85,17 @@ const SearchBar = () => {
 
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <SearchBackground>
-          <SearchFlexContainer>
-            <SearchInput
-              value={keyword}
-              type="text"
-              onChange={changeHandler}
-              placeholder="Enter username here..."
-            />
-            <SearchButton onClick={handleSearch}>Search</SearchButton>
-          </SearchFlexContainer>
-        </SearchBackground>
-      </form>
+      <SearchForm onSubmit={handleSearch}>
+        <SearchFlexContainer>
+          <SearchInput
+            value={keyword}
+            type="text"
+            onChange={changeHandler}
+            placeholder="Enter username here..."
+          />
+          <SearchButton onClick={handleSearch}>Search</SearchButton>
+        </SearchFlexContainer>
+      </SearchForm>
 
       <SearchResults
         page={page}

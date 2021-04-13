@@ -54,7 +54,7 @@ SearchResults.propTypes = {
   handleGoBack: PropTypes.func.isRequired,
   handleGoNext: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
-  totalPages: PropTypes.number.isRequired,
+  totalPages: PropTypes.number,
   totalResults: PropTypes.number.isRequired,
   resultsPerPage: PropTypes.number.isRequired,
 };
