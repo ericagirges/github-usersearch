@@ -67,7 +67,9 @@ const UserCard = (props) => {
         />
         <Username>{props.user.login}</Username>
       </FlexContainer>
-      <StyledLink href={props.user.html_url}>View user profile</StyledLink>
+      <StyledLink href={props.user.html_url} target="_blank">
+        View user profile
+      </StyledLink>
     </UserContainer>
   );
 };
