@@ -30,6 +30,7 @@ const SearchInput = styled.input`
   font-family: "Roboto", sans-serif;
   border: none;
   border-radius: 5px;
+  padding: 0 10px;
   @media (min-width: 500px) {
     width: 300px;
   }
