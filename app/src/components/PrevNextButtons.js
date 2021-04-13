@@ -12,17 +12,20 @@ const PageNavigator = styled.button`
   font-size: 1em;
 `;
 
+const Arrows = styled.span`
+  font-size: 0.75em;
+`;
 const PrevNextButtons = ({ handleGoBack, handleGoNext, page, totalPages }) => {
   return (
     <>
       {page > 1 && (
         <PageNavigator onClick={handleGoBack}>
-          <span>◀︎</span> previous
+          <Arrows>◀︎</Arrows> previous
         </PageNavigator>
       )}
       {page < totalPages && (
         <PageNavigator onClick={handleGoNext}>
-          next <span>▶︎</span>
+          next <Arrows>▶︎</Arrows>
         </PageNavigator>
       )}
     </>
