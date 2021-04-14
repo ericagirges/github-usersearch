@@ -93,7 +93,7 @@ const SearchBar = () => {
             value={keyword}
             type="text"
             onChange={changeHandler}
-            placeholder="Enter username here..."
+            placeholder="Enter name here..."
           />
           <SearchButton onClick={handleSearch}>Search</SearchButton>
         </SearchFlexContainer>
