@@ -3,6 +3,7 @@ import "./App.css";
 import styled from "styled-components";
 import SearchBar from "./components/SearchBar";
 
+// styling
 const Header = styled.header`
   height: 100px;
   background-color: #242a2e;

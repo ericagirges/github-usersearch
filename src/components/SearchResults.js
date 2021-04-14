@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import UserCard from "./UserCard";
 import PrevNextButtons from "./PrevNextButtons";
 
+// styling
 const TotalResults = styled.p`
   margin-bottom: 20px;
   font-family: "Roboto";
@@ -17,6 +18,7 @@ const SearchResults = (props) => {
     return null;
   }
 
+  // stores total pages based on results and determine the results range the user is viewing per page
   const currentResultRange = props.resultsPerPage * (props.page - 1);
   const totalPages = props.totalResults / props.resultsPerPage;
 

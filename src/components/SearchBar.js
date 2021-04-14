@@ -53,9 +53,11 @@ const SearchButton = styled.button`
 `;
 
 const SearchBar = () => {
+  // hold state for search keyword
   const [keyword, setKeyword] = useState("");
   const [totalResults, setTotalResults] = useState(0);
   const [results, setResults] = useState(null);
+  // hold state for page number - always defaults to page 1 upon initial search request
   const [page, setPage] = useState(1);
 
   const changeHandler = (e) => {
@@ -71,7 +73,7 @@ const SearchBar = () => {
 
     axios
       .get(
-        `https://api.github.com/search/users?per_page=${RESULTS_PER_PAGE}&page=${page}&q=${keyword} in:login`
+        `https://api.github.com/search/users?per_page=${RESULTS_PER_PAGE}&page=${page}&q=${keyword}`
       )
       .then((response) => {
         console.log(response);
@@ -103,6 +105,7 @@ const SearchBar = () => {
         totalResults={totalResults}
         results={results}
         keyword={keyword}
+        // every time the user navigates to previous or next page - API is hit and page number is adjusted accordingly to display sorted results.
         handleGoBack={(e) => handleSearch(e, Math.max(0, page - 1))}
         handleGoNext={(e) => handleSearch(e, page + 1)}
       />
